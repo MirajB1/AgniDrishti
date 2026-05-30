@@ -24,8 +24,5 @@ dist-ssr
 *.sw?
 
 
-# files
-adminApi.js
-config.js
-apiKeys.js
+# Environment files (secrets)
 .env
