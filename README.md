@@ -1,14 +1,14 @@
-﻿## Nepal Wildfire Watch 
+# 🔥 AgniDrishti Nepal (अग्निदृष्टि नेपाल)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![Node.js 14+](https://img.shields.io/badge/node.js-14+-green.svg)](https://nodejs.org/)
 
-Nepal Wildfire Watch is a **full-stack web application** with **AI/ML integration** that provides **real-time wildfire risk prediction and alerting for Nepal**. It combines satellite data, weather APIs, and custom-trained machine learning models to help prevent and monitor forest fires.
+**AgniDrishti Nepal** is a **full-stack AI-powered wildfire monitoring and prediction platform** built for Nepal. It combines satellite data, real-time weather APIs, and custom-trained machine learning models to detect, predict, and alert about forest fire risks across the country.
 
-**Tech Stack:**  (MongoDB, React) + FastAPI (Python Backend)
+> *"AgniDrishti" means "Fire Vision" in Nepali — seeing fires before they spread.*
 
-**Latest Updates:** ✅ Backend tests passing, ✅ Frontend build successful, ✅ Enhanced authentication with password reset, ✅ Improved Predict page UI
+**Tech Stack:** React + FastAPI + MongoDB + Machine Learning (Random Forest & Naive Bayes)
 
 ---
 
@@ -16,57 +16,45 @@ Nepal Wildfire Watch is a **full-stack web application** with **AI/ML integratio
 
 - [Screenshots](#-screenshots)
 - [Features](#-features)
-- [Technology Stack](#-technology-stack)
-- [Installation](#-installation)
-- [API Documentation](#-api-endpoints)
-- [Model Training](#-model-training)
-- [Project Structure](#-project-structure)
 - [Roles & Permissions](#-roles--permissions)
+- [ML Prediction System](#-ml-prediction-system)
+- [Technology Stack](#-technology-stack)
+- [Installation & Setup](#-installation--setup)
+- [Admin Login](#-admin-login)
+- [API Endpoints](#-api-endpoints)
+- [Project Structure](#-project-structure)
 - [Deployment](#-deployment)
 - [Testing](#-testing)
 - [Contributing](#-contributing)
 - [License](#-license)
+- [Authors](#-authors)
+- [Support & Questions](#-support--questions)
+- [Acknowledgments](#-acknowledgments)
 
 ---
 
 ## 📸 Screenshots
 
 ### Homepage
-**Introduction to wildfire risk in Nepal • News bulletin & informational content**
-
+**Emergency contacts • Fire awareness content • Alert banner**
 ![Homepage](./screenshots/Homepage.png)
 
 ---
 
 ### Live Map
-**Real-time fire hotspot visualization (NASA FIRMS API) • Interactive map of Nepal showing ongoing fires • Selectable time window (current / past 7 days)**
-
+**Real-time fire hotspot visualization (NASA FIRMS API) • Interactive map of Nepal • Selectable time window**
 ![Live Map](./screenshots/live_map.png)
 
 ---
 
 ### Predict
-**Interactive map for selecting any location in Nepal • Automatic fetching of weather & elevation data • Manual parameter adjustment (temperature, humidity, wind speed, etc.) • Fire risk prediction using Random Forest model • Results display: risk level + model probability**
-
+**Select any location in Nepal • Auto-fetch weather & elevation • Fire risk prediction with confidence score**
 ![Predict](./screenshots/predict.png)
-
----
-
-### Statistics
-**Historical fire statistics & trends • Yearly & monthly fire counts • Detection confidence bands • Top districts by fire count • Geographic distribution of fire incidents**
-
-
----
-
-### Alerts
-**Public alerts issued by admins • Safety tips & emergency contacts**
-
 
 ---
 
 ### Contact
 **User contact form • FAQs & support information**
-
 ![Contact](./screenshots/contact.png)
 
 ---
@@ -74,75 +62,73 @@ Nepal Wildfire Watch is a **full-stack web application** with **AI/ML integratio
 ## ✨ Features
 
 ### 🏠 Homepage
-- Introduction to wildfire risk in Nepal  
-- News bulletin & informational content  
+- Fire awareness content, statistics, and educational metrics.
+- Critical emergency contact numbers (Police, Fire Brigade, NEOC, Red Cross).
+- Active wildfire alert banners published by administrators.
 
 ### 🗺️ Live Map
-- Real-time fire hotspot visualization (NASA FIRMS API)  
-- Selectable time window (current / past 7 days)  
-- Interactive map of Nepal showing ongoing fires  
+- Real-time fire hotspots visualization updated via the NASA FIRMS API.
+- Selectable monitoring time window (current / past 7 days).
+- Interactive Nepal map with detailed fire markers and popups.
 
-### 🔮 Predict
-- Interactive map for selecting any location in Nepal  
-- Automatic fetching of weather & elevation data  
-- Manual parameter adjustment:  
-  - `latitude, longitude, temperature, humidity, wind speed, precipitation, elevation, VPD`  
-- Fire risk prediction using a **Random Forest model trained from scratch**  
-- Results display: **risk level + model probability**  
-- Modern, responsive UI with improved user experience
-- Geographic distribution of fire incidents  
+### 🔮 Predict (Fire Risk)
+- Click-to-select coordinates directly on the interactive map of Nepal.
+- Auto-fetches weather data (OpenWeatherMap) and elevation (Open-Elevation).
+- Manual parameters tuner: `latitude`, `longitude`, `temperature`, `humidity`, `wind speed`, `precipitation`, `elevation`, and `VPD`.
+- Custom-trained **Random Forest** model predicts fire risk with risk levels (**Low / Moderate / High**) and probability scores.
 
-### 📞 Contact
-- User contact form  
-- FAQs & support information  
+### 📊 Statistics
+- Historical fire stats, monthly/yearly counts, and top districts.
+- Detection confidence bands and geographic distribution metrics.
 
-### 🚨 Alerts
-- Public alerts issued by admins  
-- Safety tips & emergency contacts  
+### 🚨 Alerts & Reports
+- Public safety warnings issued by administrators.
+- Registered users can submit live wildfire reports with geographic pins.
 
-### 🔐 Authentication & Authorization
-- User registration & login  
-- Role-based dashboards (Admin & User)  
-- OTP verification, password reset via email  
-- JWT-based authentication  
-- Admin login with fallback to user roles
-## 👥 Roles & Permissions
-
-### 👑 Admin
-- View/respond to user messages & fire reports  
-- Mark alerts as resolved  
-- Run full forest scans using **Naive Bayes** model  
-- Auto-create alerts for high-risk forests  
-- Manage alerts (CRUD), contact forms, and fire reports  
-
-### 👤 Registered User
-- Submit wildfire reports  
-- Access prediction, live map, stats, contact, and alerts  
-
-### 👀 Visitor
-- Access prediction, live map, stats, contact, and alerts  
-- Cannot submit fire reports  
+### 🔐 Authentication
+- JWT-based user registration, login, and email OTP-based password resets.
+- Role-based dashboards for Admins and Registered Users.
 
 ---
 
-## 🤖 Prediction System
+## 👥 Roles & Permissions
 
-**Input Parameters:**
+### 👑 Admin
+- View and respond to user messages and fire reports.
+- Run full Nepal forest fire risk scans using the **Naive Bayes** model.
+- Auto-create public alerts for high-risk forests.
+- Create, read, update, and delete (CRUD) alert instances.
+- Mark submitted wildfire reports as resolved.
+
+### 👤 Registered User
+- Submit live wildfire reports with coordinates and details.
+- Access prediction tooling, live map, stats, and alert dashboards.
+
+### 👀 Visitor (Unauthenticated)
+- Access predictions, live map, stats, alerts, and contact form.
+- Cannot submit live wildfire reports.
+
+---
+
+## 🤖 ML Prediction System
+
+### Input Parameters
 ```
 latitude, longitude, temperature, humidity, wind_speed, precipitation, elevation, VPD
 ```
 
-**Models:**
-- **Random Forest** (Custom implementation for prediction)
-- **Naive Bayes** (Used for admin full forest scans)
+### Models
+| Model | Purpose |
+|-------|---------|
+| **Random Forest** (custom implementation) | User-facing individual fire risk predictions |
+| **Naive Bayes** | Automated full-country forest scans for admins |
 
-**Workflow:**
-1. User selects a location or provides manual inputs
-2. Weather data auto-fetched from OpenWeatherMap
-3. Elevation data retrieved from Open-Elevation API
-4. Data scaled and normalized
-5. Random Forest model predicts fire risk
-6. Risk level categorized as: Low, Moderate, or High
+### Workflow
+1. User selects a location or inputs parameters manually.
+2. Weather and elevation data are automatically pulled via APIs.
+3. VPD (Vapour Pressure Deficit) is computed from temperature and humidity.
+4. Parameters are scaled and normalized using custom scalers.
+5. The model outputs fire risk category: **Low** (<40%), **Moderate** (40–75%), or **High** (>75%).
 
 ---
 
@@ -150,36 +136,15 @@ latitude, longitude, temperature, humidity, wind_speed, precipitation, elevation
 
 | Layer | Technology |
 |-------|-----------|
-| **Frontend** | React (Vite), Tailwind CSS, Leaflet (maps), Axios |
-| **Backend** | FastAPI, Uvicorn, FastAPI-JWT-Auth, Joblib |
+| **Frontend** | React 18 (Vite), Tailwind CSS, Leaflet, Axios |
+| **Backend** | FastAPI, Uvicorn, PyJWT, Joblib, Uvicorn |
 | **ML/AI** | Scikit-learn, Pandas, NumPy, Random Forest, Naive Bayes |
-| **Database** | MongoDB, Mongoose |
-| **External APIs** | NASA FIRMS, OpenWeatherMap, Open-Elevation |
-| **DevOps** | Vercel (Frontend), Render (Backend) |
+| **Database** | MongoDB (Motor asynchronous driver) |
+| **APIs** | NASA FIRMS, OpenWeatherMap, Open-Elevation |
 
 ---
 
-## 📋 Requirements
-
-### Backend
-- Python 3.9+
-- FastAPI, Uvicorn
-- Pandas, NumPy, Scikit-learn
-- Joblib, Requests
-- python-dotenv
-- fastapi-jwt-auth
-- MongoDB
-
-### Frontend
-- Node.js 14+
-- React 18+
-- Vite
-- Tailwind CSS
-- Leaflet
-
----
-
-## 🚀 Installation
+## 🚀 Installation & Setup
 
 ### 1. Clone Repository
 ```bash
@@ -188,7 +153,7 @@ cd AgniDrishti
 ```
 
 ### 2. Backend Setup
-
+Navigate to the backend directory, initialize a virtual environment, and install package dependencies:
 ```bash
 cd backend
 python -m venv venv
@@ -205,32 +170,50 @@ pip install -r requirements.txt
 
 Create a `.env` file in the `backend/` directory:
 ```env
-MONGODB_URI=your_mongodb_connection_string
-SECRET_KEY=your_secret_key_here
-OPENWEATHERMAP_API_KEY=your_api_key_here
+MONGO_URI=mongodb+srv://username:password@cluster.mongodb.net/wildfire_db
+SECRET_KEY=your_super_secret_jwt_key_here
+OPENWEATHER_KEY=your_openweathermap_api_key
+SMTP_SENDER=your_gmail@gmail.com
+SMTP_PASSWORD=your_gmail_app_password
+FRONTEND_URL=http://localhost:5173
 ```
 
-Start the backend server:
+Start the backend API server:
 ```bash
 uvicorn main:app --reload
 ```
-Backend will run on: `http://localhost:8000`
+The API server will run at: `http://localhost:8000`
 
 ### 3. Frontend Setup
-
+Navigate to the frontend directory, install npm packages, and spin up the developer server:
 ```bash
-cd frontend
+cd ../frontend
 npm install
+```
+
+Create a `.env` file in the `frontend/` directory:
+```env
+VITE_API_URL=http://localhost:8000
+```
+
+Start the development build:
+```bash
 npm run dev
 ```
-Frontend will run on: `http://localhost:5173`
+The web application will run at: `http://localhost:5173`
 
-### 4. Access Application
+---
 
-Open your browser and navigate to:
-```
-http://localhost:5173
-```
+## 🔑 Admin Login
+
+The administrator account is auto-seeded on first server startup:
+
+| Field | Seed Value |
+|-------|-------|
+| **Email** | `admin@gmail.com` |
+| **Password** | `example` |
+
+> ⚠️ **Security Warning**: Please change the default password after your first login via the database or by updating `backend/models/admin.py`.
 
 ---
 
@@ -238,55 +221,35 @@ http://localhost:5173
 
 ### Public Endpoints
 ```http
-GET  /                          # API status
-GET  /health                    # Health check endpoint
-POST /predict-manual            # Predict fire risk (manual input)
-GET  /predict-fire              # Predict fire risk (with weather data)
-GET  /fires                     # Real-time fire hotspots
+GET  /                          # API health check
+POST /predict-manual            # Predict fire risk (manual inputs)
+GET  /fires                     # Real-time NASA fire hotspots
 GET  /fires/yearly              # Yearly fire statistics
 GET  /fires/monthly             # Monthly fire statistics
-GET  /fires/confidence          # Confidence levels
+GET  /fires/confidence          # Confidence level breakdown
 POST /contact                   # Submit contact form
-GET  /alerts                    # Get public alerts
-```
-
-### Admin Endpoints (Protected)
-```http
-POST /admin/alerts              # Create/manage alerts (CRUD)
-GET  /admin/alerts              # Get all alerts
-PUT  /admin/alerts/{id}         # Update alert
-DELETE /admin/alerts/{id}       # Delete alert
-GET  /scan-forests              # Full forest scan (Naive Bayes)
-GET  /admin/reports             # View fire reports
-POST /admin/reports/{id}/resolve # Mark report as resolved
+GET  /admin/public/alerts       # Get active public alerts
 ```
 
 ### Authentication Endpoints
 ```http
-POST /auth/register             # User registration
-POST /auth/login                # User login
-POST /auth/admin/login          # Admin login
-POST /auth/verify-otp           # OTP verification
-POST /auth/forgot-password      # Request password reset OTP
-POST /auth/reset-password       # Reset password with OTP
+POST /register                  # User registration
+POST /login                     # User login (email/username + password)
+POST /admin/login               # Admin login (email + password)
+POST /forgot-password           # Request password reset OTP
+POST /reset-password            # Reset password with OTP
 ```
 
----
-
-## 🧠 Model Training
-
-Pre-trained models are included in the repository. To retrain:
-
-### Jupyter Notebooks Available:
-- `fire-predict.ipynb` - Model exploration and training
-- `Fire_Predict_RF.ipynb` - Random Forest implementation
-- `Last Model RF.ipynb` - Final model refinement
-
-### Pre-trained Model Files:
-- `backend/model/random_forest_final_model.pkl` - Random Forest model
-- `backend/model/scaler.pkl` - StandardScaler for RF
-- `backend/model/naive_bayes.pkl` - Naive Bayes model
-- `backend/model/naive_bayes_scaler.pkl` - StandardScaler for NB
+### Admin Endpoints (JWT Required)
+```http
+POST /admin/scan-nepal          # Run full Nepal forest fire scan
+GET  /admin/alerts              # Get all alerts
+POST /admin/alerts              # Create alert
+PUT  /admin/alerts/{id}         # Update alert
+DELETE /admin/alerts/{id}       # Delete alert
+POST /admin/alerts/cleanup      # Mark expired alerts
+POST /admin/reply               # Reply to contact form email
+```
 
 ---
 
@@ -294,123 +257,79 @@ Pre-trained models are included in the repository. To retrain:
 
 ```
 AgniDrishti/
- frontend/                   # React.js frontend
-    public/                # Static assets
-    src/
-       components/        # Reusable components
-       pages/             # Page components
-       utils/             # Utility functions
-       App.jsx            # Main app component
-    package.json           # Frontend dependencies
-    vite.config.js         # Vite configuration
-
- backend/                   # FastAPI backend
-    main.py                # Main app entry point
-    custom_rf.py           # Custom Random Forest implementation
-    requirements.txt       # Python dependencies
-    .env                   # Environment variables
-    auth/                  # Authentication logic
-    models/                # Database models
-    routes/                # API route handlers
-    services/              # Business logic
-    utils/                 # Utility functions
-    database/              # Database connection
-    ml/                    # ML utilities
-    model/                 # ML model files
-    tests/                 # Unit tests
-
- docs/                      # Documentation
-    Project_Report.md      # Full project report
-    Thesis_Report.md       # Thesis documentation
-    Algorithms_and_Data.md # Algorithm explanations
-
- dataset/                   # Training datasets
-    fire_dataset_enriched.csv
-    fire_test_dataset.csv
-
- README.md                  # This file
- requirements.txt           # Root dependencies
+├── frontend/                   # React.js frontend (Vite + Tailwind)
+│   ├── public/                 # Static assets & GeoJSON maps
+│   ├── src/
+│   │   ├── components/         # Reusable charts, maps, navigation components
+│   │   ├── pages/              # Page layouts (Home, Live Map, Predict, Dashboard)
+│   │   ├── context/            # AuthContext (JWT state management)
+│   │   ├── config/             # API settings and URLs
+│   │   ├── utils/              # Client side helper utilities
+│   │   └── App.jsx             # React routing & core assembly
+│   ├── package.json
+│   └── vite.config.js
+│
+├── backend/                    # FastAPI backend
+│   ├── main.py                 # Application entry point
+│   ├── custom_rf.py            # Random Forest custom model code
+│   ├── auth/                   # JWT configurations and dependencies
+│   ├── models/                 # Pydantic schemas and models
+│   ├── routes/                 # Router entrypoints
+│   ├── services/               # Weather, fire stats business logic
+│   ├── database/               # Mongo Atlas connection setup
+│   ├── model/                  # Serialized .pkl files
+│   ├── tests/                  # Backend unit tests
+│   └── requirements.txt
+│
+├── jupter notebooks/           # Model training Jupyter notebooks
+│   ├── Prototype_model.ipynb
+│   ├── Last Model RF.ipynb
+│   └── Enrich Features.ipynb
+│
+├── screenshots/                # App UI screenshots
+└── README.md                   # This file
 ```
 
 ---
 
 ## 🌐 Deployment
 
-### Frontend Deployment (Vercel)
+### Frontend (Vercel)
 ```bash
+cd frontend
 npm run build
-# Deploy to Vercel via CLI or GitHub integration
 ```
-**Live Frontend:** https://forest-fire-prediction-otpw.vercel.app/
+Deploy the generated `dist/` directory via the Vercel CLI or via GitHub CI/CD integration.
 
-### Backend Deployment (Render)
-```bash
-# Deploy via Render with environment variables configured
-```
-**Live Backend:** https://forest-fire-prediction-kym9.onrender.com/
-
----
-
-## ⚙️ Configuration
-
-### Environment Variables
-
-**Backend `.env`:**
-```env
-# Database
-MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/dbname
-
-# Authentication
-SECRET_KEY=your_super_secret_jwt_key_here
-
-# Weather API
-OPENWEATHERMAP_API_KEY=your_openweathermap_api_key
-
-# CORS
-ALLOWED_ORIGINS=http://localhost:5173,https://your-domain.com
-```
+### Backend (Render)
+- Add backend environment variables in the Render dashboard.
+- Render uses `Procfile` for startup instructions.
+- `runtime.txt` specifies the target Python runtime.
 
 ---
 
 ## 🧪 Testing
 
-### Run Backend Tests
 ```bash
 cd backend
 pytest tests/
 ```
-✅ **Backend tests pass** (2/2 tests passing)
-
-### Run Frontend Tests
-```bash
-cd frontend
-npm test
-```
-✅ **Frontend build passes** (no compilation errors)
 
 ---
 
 ## 🤝 Contributing
 
-We welcome contributions! Here's how to get started:
-
-1. **Fork** the repository
-2. **Create** a feature branch (`git checkout -b feature/AmazingFeature`)
-3. **Commit** your changes (`git commit -m 'Add AmazingFeature'`)
-4. **Push** to the branch (`git push origin feature/AmazingFeature`)
-5. **Open** a Pull Request
-
-### Guidelines
-- Follow PEP 8 for Python code
-- Use meaningful commit messages
-- Include tests for new features
-- Update documentation as needed
+1. **Fork** the repository.
+2. **Create** a features branch (`git checkout -b feature/your-feature`).
+3. **Commit** your modifications (`git commit -m 'Add your feature'`).
+4. **Push** to the branch (`git push origin feature/your-feature`).
+5. **Open** a Pull Request.
 
 ---
 
 ## 📄 License
 
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License**.
 
 ---
 
@@ -426,20 +345,16 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ## 💬 Support & Questions
 
-For issues, questions, or suggestions:
-- Open an [Issue](https://github.com/MirajB1/AgniDrishti/issues)
-- Contact via the application's contact form
+For issues, bugs, or feature suggestions:
+- Open a GitHub [Issue](https://github.com/MirajB1/AgniDrishti/issues)
+- Contact us via the in-app contact form.
 
 ---
 
 ## 🙏 Acknowledgments
 
-- **NASA FIRMS** for satellite fire data
-- **OpenWeatherMap** for weather data
-- **Open-Elevation** for elevation data
-- **MongoDB** for database services
-- **Vercel & Render** for hosting services
-
----
-
-**Last Updated:** November 2025
+- **NASA FIRMS** for satellite fire detection data.
+- **OpenWeatherMap** for real-time weather details.
+- **Open-Elevation** for elevation data.
+- **MongoDB Atlas** for database hosting.
+- **Vercel & Render** for deployment infrastructure.
