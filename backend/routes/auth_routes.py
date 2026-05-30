@@ -216,7 +216,7 @@ async def login_user(data: UserLoginRequest, Authorize: AuthJWT = Depends()):
         raise
     except Exception as e:
         print(f"Login error: {e}")
-        raise HTTPException(status_code=500, detail="Internal server error during login")
+        raise HTTPException(status_code=500, detail=f"Internal server error during login: {str(e)}")
 
 # Admin Login
 @router.post("/admin/login")
