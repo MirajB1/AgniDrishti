@@ -9,7 +9,8 @@ try:
     MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017")
     print(f"Connecting to MongoDB: {MONGO_URI}")
     
-    client = AsyncIOMotorClient(MONGO_URI)
+    import certifi
+    client = AsyncIOMotorClient(MONGO_URI, tlsCAFile=certifi.where())
     db = client["wildfire_db"]
     alerts_collection = db["alerts"]
     fire_reports = db["fire_reports"]
