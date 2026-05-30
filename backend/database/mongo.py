@@ -65,7 +65,20 @@ except Exception as e:
         async def to_list(self, limit=None):
             return self.data[:limit] if limit else self.data
     
+    class InMemoryDB:
+        def __init__(self):
+            self.collections = {}
+        def __getitem__(self, name):
+            if name not in self.collections:
+                if name == "alerts":
+                    self.collections[name] = alerts_collection
+                elif name == "fire_reports":
+                    self.collections[name] = fire_reports
+                else:
+                    self.collections[name] = InMemoryCollection()
+            return self.collections[name]
+    
     # Create in-memory collections
     alerts_collection = InMemoryCollection()
     fire_reports = InMemoryCollection()
-    db = None  # No database object for in-memory storage
+    db = InMemoryDB()
