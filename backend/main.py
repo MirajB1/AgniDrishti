@@ -26,7 +26,7 @@ origins = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
     "http://localhost:3000",
-    "https://https://agnidrishti.vercel.app",  # Production frontend
+    "https://agnidrishti.vercel.app",  # Production frontend
 ]
 
 # Add custom frontend URL from environment if provided
