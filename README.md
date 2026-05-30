@@ -1,4 +1,4 @@
-﻿﻿## Nepal Wildfire Watch 
+﻿## Nepal Wildfire Watch 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
@@ -183,8 +183,8 @@ latitude, longitude, temperature, humidity, wind_speed, precipitation, elevation
 
 ### 1. Clone Repository
 ```bash
-git clone https://github.com/dipak-shaaki/Agni_Dristi_Nepal.git
-cd Agni_Dristi_Nepal
+git clone https://github.com/MirajB1/AgniDrishti.git
+cd AgniDrishti
 ```
 
 ### 2. Backend Setup
@@ -293,7 +293,7 @@ Pre-trained models are included in the repository. To retrain:
 ## 📁 Project Structure
 
 ```
-Agni_Dristi_Nepal/
+AgniDrishti/
  frontend/                   # React.js frontend
     public/                # Static assets
     src/
@@ -427,7 +427,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 ## 💬 Support & Questions
 
 For issues, questions, or suggestions:
-- Open an [Issue](https://github.com/dipak-shaaki/Forest_Fire_Prediction/issues)
+- Open an [Issue](https://github.com/MirajB1/AgniDrishti/issues)
 - Contact via the application's contact form
 
 ---
