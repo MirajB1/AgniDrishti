@@ -287,6 +287,35 @@ export default function AdminDashboard() {
     }
   };
 
+  // Reply to fire reports
+  const sendReportReply = async (reportId) => {
+    if (!replySubject || !replyBody) return alert("Fill subject & body");
+    const token = localStorage.getItem("adminToken");
+    if (!token) return alert("You must be logged in as admin");
+    try {
+      await axios.post(
+        `${API_BASE_URL}/admin/reply-report`,
+        {
+          report_id: reportId,
+          subject: replySubject,
+          message: replyBody,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      alert("Reply sent successfully to reporter");
+      setReplyingId(null);
+      setReplySubject("");
+      setReplyBody("");
+    } catch (err) {
+      console.error(err);
+      alert(err.response?.data?.detail || "Failed to send reply to reporter");
+    }
+  };
+
   // Update report resolution status
   const handleResolve = async (id, newStatus) => {
     try {
@@ -839,7 +868,7 @@ export default function AdminDashboard() {
                           rows="4"
                         />
                         <div className="flex gap-2">
-                          <button onClick={() => sendReply(r.email)} className="btn-primary">Send Reply</button>
+                          <button onClick={() => sendReportReply(r.id)} className="btn-primary">Send Reply</button>
                           <button onClick={() => setReplyingId(null)} className="btn-secondary">Cancel</button>
                         </div>
                       </div>
