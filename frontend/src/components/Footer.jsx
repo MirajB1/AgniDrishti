@@ -7,7 +7,7 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* About */}
           <div>
-            <h3 className="text-lg font-700 text-white mb-4">Nepal Wildfire Watch</h3>
+            <h3 className="text-lg font-700 text-white mb-4">AgniDrishti</h3>
             <p className="text-sm text-slate-400 leading-relaxed">
               Advanced forest fire monitoring and predictive system protecting Nepal's forests through real-time satellite data and machine learning.
             </p>
@@ -50,7 +50,7 @@ function Footer() {
                 <svg className="w-5 h-5 text-forest-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                <span className="text-slate-400">support@nepalwildfire.org</span>
+                <span className="text-slate-400">support@agnidrishti.org</span>
               </div>
               <div className="flex items-start gap-3">
                 <svg className="w-5 h-5 text-forest-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -66,7 +66,7 @@ function Footer() {
         <div className="border-t border-slate-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-slate-500">
-              © 2026 Nepal Wildfire Watch. All rights reserved.
+              © 2026 AgniDrishti. All rights reserved.
             </p>
             <div className="flex gap-8 text-sm">
               <a href="#" className="text-slate-500 hover:text-slate-300 transition-colors">Privacy Policy</a>
