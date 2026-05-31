@@ -60,6 +60,13 @@ function Navbar() {
             </Link>
 
             <Link
+              to="/report-fire"
+              className="px-3.5 py-2 rounded-button text-slate-700 hover:text-red-600 hover:bg-red-50 font-medium text-sm transition-all duration-200"
+            >
+              Report Fire
+            </Link>
+
+            <Link
               to="/stats"
               className="px-3.5 py-2 rounded-button text-slate-700 hover:text-sky-600 hover:bg-sky-50 font-medium text-sm transition-all duration-200"
             >
@@ -149,6 +156,13 @@ function Navbar() {
                 className="block px-3 py-2 rounded-button text-slate-700 hover:bg-fire-50 transition-all duration-200 font-medium"
               >
                 Alerts
+              </Link>
+              <Link
+                to="/report-fire"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block px-3 py-2 rounded-button text-slate-700 hover:bg-red-50 hover:text-red-600 transition-all duration-200 font-medium"
+              >
+                Report Fire
               </Link>
               <Link
                 to="/stats"
