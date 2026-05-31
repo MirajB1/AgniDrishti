@@ -49,7 +49,7 @@ function Navbar() {
               to="/predict"
               className="px-3.5 py-2 rounded-button text-slate-700 hover:text-warning-600 hover:bg-warning-50 font-medium text-sm transition-all duration-200"
             >
-              Predict
+              Predict Fire
             </Link>
 
             <Link
@@ -141,7 +141,7 @@ function Navbar() {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="block px-3 py-2 rounded-button text-slate-700 hover:bg-warning-50 transition-all duration-200 font-medium"
               >
-                Predict
+                Predict Fire
               </Link>
               <Link
                 to="/alerts"
