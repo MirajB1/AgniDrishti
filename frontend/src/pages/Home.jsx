@@ -140,7 +140,7 @@ function Home() {
               </p>
 
               <p className="text-base lg:text-lg">
-                <strong>Nepal Wildfire Watch</strong> is a comprehensive platform developed to predict and monitor forest fires and fire risks across Nepal. Our system combines satellite data, meteorological information, and machine learning to provide real-time threat assessments and risk predictions.
+                <strong>AgniDrishti</strong> is a comprehensive platform developed to predict and monitor forest fires and fire risks across Nepal. Our system combines satellite data, meteorological information, and machine learning to provide real-time threat assessments and risk predictions.
               </p>
             </div>
           </div>
