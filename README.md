@@ -6,7 +6,7 @@
 
 **AgniDrishti Nepal** is a **full-stack AI-powered wildfire monitoring and prediction platform** built for Nepal. It combines satellite data, real-time weather APIs, and custom-trained machine learning models to detect, predict, and alert about forest fire risks across the country.
 
-> *"AgniDrishti" means "Fire Vision" in Nepali — seeing fires before they spread.*
+> *"AgniDrishti" means "Fire Vision" in Nepali - seeing fires before they spread.*
 
 **Tech Stack:** React + FastAPI + MongoDB + Machine Learning (Random Forest & Naive Bayes)
 
